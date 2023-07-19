@@ -6,7 +6,10 @@ export const environmentSchema = Joi.object<Environment, true>({
     .valid('local', 'dev', 'test', 'qa', 'prod')
     .default('local'),
   PORT: Joi.number().default(3000),
-  CLOUD_FRONT_URL: Joi.string().uri().required(),
-  LOCAL_DEFAULT: Joi.string().required(),
-  TIMEZONE_DEFAULT: Joi.string().required(),
+  DB_HOST: Joi.string().required(),
+  DB_NAME: Joi.string().required(),
+  DB_PASSWORD: Joi.string().required(),
+  DB_PORT: Joi.number().required(),
+  DB_USERNAME: Joi.string().required(),
+  DB_SOCKET_PATH: Joi.string().required(),
 });

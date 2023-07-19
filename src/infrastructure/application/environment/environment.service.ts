@@ -11,4 +11,8 @@ export class EnvironmentService {
   get<Key extends keyof Environment>(key: Key): Environment[Key] {
     return this.configService.getOrThrow<Environment[Key]>(key);
   }
+
+  isProd(): boolean {
+    return this.get('NODE_ENV') === 'prod';
+  }
 }
