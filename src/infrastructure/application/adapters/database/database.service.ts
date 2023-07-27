@@ -16,12 +16,6 @@ export class DatabaseService implements TypeOrmOptionsFactory {
       autoLoadEntities: true,
     };
 
-    if (this.environmentService.isProd())
-      return {
-        ...sharedTypeOrmModuleOptions,
-        socketPath: this.environmentService.get('DB_SOCKET_PATH'),
-      };
-
     return {
       ...sharedTypeOrmModuleOptions,
       host: this.environmentService.get('DB_HOST'),

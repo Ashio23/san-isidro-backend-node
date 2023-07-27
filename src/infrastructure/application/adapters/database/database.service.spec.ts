@@ -25,7 +25,6 @@ describe('DatabaseService', () => {
       DB_PASSWORD: 'DB_PASSWORD',
       DB_PORT: 1234,
       DB_USERNAME: 'DB_USERNAME',
-      DB_SOCKET_PATH: 'DB_SOCKET_PATH',
     } as Environment;
 
     beforeEach(() => {
@@ -75,16 +74,6 @@ describe('DatabaseService', () => {
     describe('when is in production mode', () => {
       beforeEach(() => {
         jest.spyOn(environmentService, 'isProd').mockReturnValue(true);
-      });
-
-      it('should contain extra connection properties', () => {
-        const expected: TypeOrmModuleOptions = {
-          socketPath: environment.DB_SOCKET_PATH,
-        };
-
-        const actual = underTest.createTypeOrmOptions();
-
-        expect(actual).toMatchObject<TypeOrmModuleOptions>(expected);
       });
 
       it('should not contain some connection properties', () => {

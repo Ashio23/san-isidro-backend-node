@@ -6,5 +6,4 @@ export class Environment {
   DB_PASSWORD: string;
   DB_PORT: number;
   DB_USERNAME: string;
-  DB_SOCKET_PATH: string;
 }

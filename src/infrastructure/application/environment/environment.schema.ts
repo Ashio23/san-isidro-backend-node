@@ -7,9 +7,8 @@ export const environmentSchema = Joi.object<Environment, true>({
     .default('local'),
   PORT: Joi.number().default(3000),
   DB_HOST: Joi.string().required(),
-  DB_NAME: Joi.string().required(),
+  DB_NAME: Joi.string(),
   DB_PASSWORD: Joi.string().required(),
   DB_PORT: Joi.number().required(),
   DB_USERNAME: Joi.string().required(),
-  DB_SOCKET_PATH: Joi.string().required(),
 });

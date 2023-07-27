@@ -1,25 +1,25 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Cliente } from './entity';
+import { Client } from './entity';
 
 @Injectable()
 export class ClienteService {
   constructor(
-    @InjectRepository(Cliente)
-    private clienteRepository: Repository<Cliente>,
+    @InjectRepository(Client)
+    private clienteRepository: Repository<Client>,
   ) {}
 
-  async findById(id: number): Promise<Cliente | null> {
-    const cliente = await this.clienteRepository
+  async findById(id: number): Promise<Client | null> {
+    const client = await this.clienteRepository
       .createQueryBuilder('cliente')
       .where('cliente.id = :id', { id })
       .getOne();
 
-    if (!cliente) {
+    if (!client) {
       throw new NotFoundException('Cliente no encontrado');
     }
 
-    return cliente;
+    return client;
   }
 }

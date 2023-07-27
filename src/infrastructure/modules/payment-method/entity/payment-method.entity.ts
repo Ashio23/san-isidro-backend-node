@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('formasPago')
-export class FormaPago {
+export class PaymentMethodDto {
   @PrimaryColumn()
   id: string;
 

@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { FormaPago } from './entity';
+import { PaymentMethodDto } from './entity';
 
 @Injectable()
-export class FormaPagoService {
-  private readonly formasPago: FormaPago[] = [
+export class PaymentMethodService {
+  private readonly paymentMethod: PaymentMethodDto[] = [
     { id: '1', descripcion: 'Contado' },
     { id: '2', descripcion: 'Crédito' },
   ];
 
-  findAll(): FormaPago[] {
-    return this.formasPago;
+  findAll(): PaymentMethodDto[] {
+    return this.paymentMethod;
   }
 }

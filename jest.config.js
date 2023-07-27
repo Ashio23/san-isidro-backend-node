@@ -9,6 +9,7 @@ module.exports = {
   transform: { '^.+\\.ts$': 'ts-jest' },
   collectCoverageFrom: ['src/**/*.*.ts', `!src/**/*.(module).ts`],
   coverageDirectory: './coverage',
+  setupFilesAfterEnv: ['<rootDir>/test/env.setup.js'],
   testEnvironment: 'node',
   // Helps to use aliases in tsconfig (@module/*)
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths ?? {}, {

@@ -1,13 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-import { FormaPagoService } from './payment-method.service';
-import { FormaPago } from './entity';
+import { PaymentMethodService } from './payment-method.service';
+import { PaymentMethodDto } from './entity';
 
 @Controller('formasPago')
-export class FormaPagoController {
-  constructor(private readonly formaPagoService: FormaPagoService) {}
+export class PaymentMethodController {
+  constructor(private readonly formaPagoService: PaymentMethodService) {}
 
   @Get()
-  findAll(): FormaPago[] {
+  findAll(): PaymentMethodDto[] {
     return this.formaPagoService.findAll();
   }
 }
