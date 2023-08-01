@@ -1,22 +1,21 @@
+import { IDocumentPort } from '@domain/Document/port/get-document.port';
 import { Injectable } from '@nestjs/common';
-import { Documento } from './entity/document.entity';
+import { DocumentResponseDto } from './entity';
 
 @Injectable()
-export class DocumentoService {
-  private readonly documentos: Documento[] = [
-    { id: '33', descripcion: 'Factura Electrónica' },
-    { id: '34', descripcion: 'Factura No Afecta o Exenta Electrónica' },
-    { id: '39', descripcion: 'Boleta Electrónica' },
-    { id: '41', descripcion: 'Boleta Exenta Electrónica' },
-    { id: '43', descripcion: 'Liquidación - Factura Electrónica' },
-    { id: '46', descripcion: 'Factura de Compra Electrónica' },
-    { id: '52', descripcion: 'Guía de Despacho Electrónica' },
-    { id: '56', descripcion: 'Nota de Débito Electrónica' },
-    { id: '61', descripcion: 'Nota de Crédito Electrónica' },
-    { id: '801', descripcion: 'Orden de Compra' },
-  ];
-
-  findAll(): Documento[] {
-    return this.documentos;
+export class DocumentService implements IDocumentPort {
+  getDocuments(): Promise<DocumentResponseDto[]> {
+    return Promise.resolve([
+      { id: '33', description: 'Electronic Invoice' },
+      { id: '34', description: 'Non-Affected or Exempt Electronic Invoice' },
+      { id: '39', description: 'Electronic Receipt' },
+      { id: '41', description: 'Exempt Electronic Receipt' },
+      { id: '43', description: 'Electronic Invoice Liquidation' },
+      { id: '46', description: 'Electronic Purchase Invoice' },
+      { id: '52', description: 'Electronic Dispatch Guide' },
+      { id: '56', description: 'Electronic Debit Note' },
+      { id: '61', description: 'Electronic Credit Note' },
+      { id: '801', description: 'Purchase Order' },
+    ]);
   }
 }

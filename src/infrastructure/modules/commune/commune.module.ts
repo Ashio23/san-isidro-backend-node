@@ -1,13 +1,17 @@
+import { GetCommuneUseCase } from '@domain/commune/get-commune.use-case';
+import { GET_COMMUNE_ADAPTER } from '@domain/commune/port/get-commune.port';
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ComunaController } from './commune.controller';
-import { ComunaService } from './commune.service';
-import { Comuna } from './entity';
+import { CommuneController } from './commune.controller';
+import { CommuneService } from './commune.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Comuna])],
-  controllers: [ComunaController],
-  providers: [ComunaService],
-  exports: [ComunaService],
+  controllers: [CommuneController],
+  providers: [
+    GetCommuneUseCase,
+    {
+      provide: GET_COMMUNE_ADAPTER,
+      useClass: CommuneService,
+    },
+  ],
 })
 export class CommuneModule {}

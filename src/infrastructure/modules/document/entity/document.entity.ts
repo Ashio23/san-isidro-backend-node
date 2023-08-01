@@ -1,10 +1,6 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { DocumentDto } from '@domain/Document/dto';
 
-@Entity('documentos')
-export class Documento {
-  @PrimaryColumn()
+export class DocumentResponseDto implements DocumentDto {
   id: string;
-
-  @Column()
-  descripcion: string;
+  description: string;
 }

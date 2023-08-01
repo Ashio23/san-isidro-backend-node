@@ -1,13 +1,14 @@
+import { GetPaymentMethodsUseCase } from '@domain/payment-method';
 import { Controller, Get } from '@nestjs/common';
-import { PaymentMethodService } from './payment-method.service';
-import { PaymentMethodDto } from './entity';
 
-@Controller('formasPago')
-export class PaymentMethodController {
-  constructor(private readonly formaPagoService: PaymentMethodService) {}
+@Controller('payment-methods')
+export class PaymentMethodsController {
+  constructor(
+    private readonly getPaymentMethodsUseCase: GetPaymentMethodsUseCase,
+  ) {}
 
   @Get()
-  findAll(): PaymentMethodDto[] {
-    return this.formaPagoService.findAll();
+  async getPaymentMethods() {
+    return await this.getPaymentMethodsUseCase.execute();
   }
 }

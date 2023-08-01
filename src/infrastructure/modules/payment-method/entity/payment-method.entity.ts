@@ -1,10 +1,6 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { PaymentMethodDto } from '@domain/payment-method';
 
-@Entity('formasPago')
-export class PaymentMethodDto {
-  @PrimaryColumn()
+export class PaymentMethodResponse implements PaymentMethodDto {
   id: string;
-
-  @Column()
-  descripcion: string;
+  description: string;
 }

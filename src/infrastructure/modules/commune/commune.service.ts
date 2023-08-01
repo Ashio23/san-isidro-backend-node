@@ -1,16 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Comuna } from './entity';
+import { SQL_ADAPTER } from '@infrastructure/application/adapters/database';
+import { SqlService } from '@infrastructure/application/adapters/database/sql.service';
+import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ComunaService {
-  constructor(
-    @InjectRepository(Comuna)
-    private comunaRepository: Repository<Comuna>,
-  ) {}
+export class CommuneService {
+  constructor(@Inject(SQL_ADAPTER) private readonly sqlService: SqlService) {}
 
-  async findDistinct(): Promise<Comuna[]> {
-    return this.comunaRepository.find();
+  async getCommune() {
+    const query =
+      'SELECT distinct id_comuna id, com_nombre as nombre FROM comuna';
+    return this.sqlService.query(query);
   }
 }

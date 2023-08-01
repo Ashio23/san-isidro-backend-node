@@ -41,6 +41,7 @@
     "express-http-context": "^1.2.4",
     "helmet": "^7.0.0",
     "joi": "^17.9.2",
+    "mysql2": "^3.5.2",
     "pg": "^8.11.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^5.0.1",

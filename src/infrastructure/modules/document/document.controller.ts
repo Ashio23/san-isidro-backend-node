@@ -1,13 +1,12 @@
+import { GetDocumentsUseCase } from '@domain/Document/get-document.use-case';
 import { Controller, Get } from '@nestjs/common';
-import { DocumentoService } from './document.service';
-import { Documento } from './entity/document.entity';
 
-@Controller('documentos')
-export class DocumentoController {
-  constructor(private readonly documentoService: DocumentoService) {}
+@Controller('documents')
+export class DocumentsController {
+  constructor(private readonly getDocumentsUseCase: GetDocumentsUseCase) {}
 
   @Get()
-  findAll(): Documento[] {
-    return this.documentoService.findAll();
+  getDocuments() {
+    return this.getDocumentsUseCase.execute();
   }
 }

@@ -1,12 +1,19 @@
+import {
+  GET_PAYMENT_METHOD_ADAPTER,
+  GetPaymentMethodsUseCase,
+} from '@domain/payment-method';
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { PaymentMethodController } from './payment-method.controller';
+import { PaymentMethodsController } from './payment-method.controller';
 import { PaymentMethodService } from './payment-method.service';
-import { PaymentMethodDto } from './entity';
+
 @Module({
-  imports: [TypeOrmModule.forFeature([PaymentMethodDto])],
-  controllers: [PaymentMethodController],
-  providers: [PaymentMethodService],
-  exports: [PaymentMethodService],
+  controllers: [PaymentMethodsController],
+  providers: [
+    GetPaymentMethodsUseCase,
+    {
+      provide: GET_PAYMENT_METHOD_ADAPTER,
+      useClass: PaymentMethodService,
+    },
+  ],
 })
-export class PaymentMethodModule {}
+export class PaymentMethodsModule {}
