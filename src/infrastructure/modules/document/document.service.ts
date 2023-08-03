@@ -6,6 +6,8 @@ import { DocumentResponseDto } from './entity';
 export class DocumentService implements IDocumentPort {
   getDocuments(): Promise<DocumentResponseDto[]> {
     return Promise.resolve([
+      { id: '1', description: 'Boleta Electrónica' },
+      { id: '2', description: 'Factura Electrónica' },
       { id: '33', description: 'Electronic Invoice' },
       { id: '34', description: 'Non-Affected or Exempt Electronic Invoice' },
       { id: '39', description: 'Electronic Receipt' },

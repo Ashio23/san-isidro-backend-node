@@ -1,6 +1,6 @@
+import { IPaymentMethodPort } from '@domain/payment-method';
 import { Injectable } from '@nestjs/common';
 import { PaymentMethodResponse } from './entity';
-import { IPaymentMethodPort } from '@domain/payment-method';
 
 @Injectable()
 export class PaymentMethodService implements IPaymentMethodPort {

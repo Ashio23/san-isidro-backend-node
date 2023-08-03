@@ -9,7 +9,7 @@ export class SaveInvoiceUseCase {
     private readonly invoicePort: IInvoicePort,
   ) {}
 
-  async execute(invoice: InvoiceDto): Promise<InvoiceDto> {
+  async execute(invoice: InvoiceDto): Promise<unknown> {
     return this.invoicePort.saveInvoice(invoice);
   }
 }

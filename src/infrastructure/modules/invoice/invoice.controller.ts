@@ -7,9 +7,7 @@ export class InvoiceController {
   constructor(private readonly saveInvoiceUseCase: SaveInvoiceUseCase) {}
 
   @Post()
-  async saveInvoice(
-    @Body() invoice: InvoiceResponseDto,
-  ): Promise<InvoiceResponseDto> {
+  async saveInvoice(@Body() invoice: InvoiceResponseDto): Promise<unknown> {
     return await this.saveInvoiceUseCase.execute(invoice);
   }
 }

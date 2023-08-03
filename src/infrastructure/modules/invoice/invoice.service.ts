@@ -1,25 +1,16 @@
 import { IInvoicePort } from '@domain/invoice/port/set-invoice.port';
-import { Injectable } from '@nestjs/common';
-import { InjectEntityManager } from '@nestjs/typeorm';
-import { EntityManager } from 'typeorm';
-import { InvoiceResponseDto, ResultItem } from './dto/invoice.dto';
+import { SQL_ADAPTER } from '@infrastructure/application/adapters/database';
+import { SqlService } from '@infrastructure/application/adapters/database/sql.service';
+import { Inject, Injectable } from '@nestjs/common';
+import { InvoiceResponseDto } from './dto/invoice.dto';
 
 @Injectable()
 export class InvoiceService implements IInvoicePort {
-  constructor(@InjectEntityManager() private manager: EntityManager) {}
+  constructor(@Inject(SQL_ADAPTER) private readonly sqlService: SqlService) {}
 
-  async saveInvoice(invoice: InvoiceResponseDto): Promise<InvoiceResponseDto> {
-    const result = await this.manager.query<ResultItem[]>(
-      'CALL SP_SAVE_INVOICE(?, ?, ?, ?, ?)',
-      [invoice.id, invoice.rut, invoice.name, invoice.amount, invoice.date],
-    );
-
-    return new InvoiceResponseDto(
-      result[0].id,
-      result[0].rut,
-      result[0].name,
-      result[0].amount,
-      result[0].date,
+  async saveInvoice(invoice: InvoiceResponseDto): Promise<unknown> {
+    return await this.sqlService.query(
+      `CALL SP_SAVE_INVOICE(${invoice.id}, ${invoice.rut}, ${invoice.name}, ${invoice.amount}, ${invoice.date})`,
     );
   }
 }
