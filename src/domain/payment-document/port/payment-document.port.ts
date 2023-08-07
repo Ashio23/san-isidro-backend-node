@@ -7,6 +7,5 @@ export interface IPaymentDocumentPort {
     route: string,
     documentType: number,
     branchName: string,
-    environment: string,
   ): Promise<unknown>;
 }

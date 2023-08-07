@@ -3,7 +3,13 @@ import {
   SQL_ADAPTER,
   SqlService,
 } from '@infrastructure/application/adapters/database';
-import { Inject, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  Logger,
+} from '@nestjs/common';
 
 @Injectable()
 export class PaymentDocumentService implements IPaymentDocumentPort {
@@ -13,13 +19,15 @@ export class PaymentDocumentService implements IPaymentDocumentPort {
   ) {}
 
   async findPaymentDocumentById(id: number): Promise<unknown> {
-    const query = `SELECT text FROM payment_document WHERE id = ${id}`;
+    const query = `SELECT dte FROM doc_cobro WHERE id_doc_cobro = ${id}`;
 
     const result = await this.sqlService.query(query);
-    if (!result) {
-      throw new Error(`No record found for id: ${id}`); // handle this error appropriately in your application
+    if (!result || Object.keys(result).length === 0) {
+      throw new HttpException(
+        `No record found for Procces id: ${id}`,
+        HttpStatus.NOT_FOUND,
+      );
     }
-    // If your query returns multiple fields, you need to select them appropriately here
     return result;
   }
 
@@ -28,14 +36,16 @@ export class PaymentDocumentService implements IPaymentDocumentPort {
     route: string,
     documentType: number,
     branchName: string,
-    environment: string,
   ): Promise<unknown> {
-    let query = '';
-    if (environment === 'QA') {
-      query = `SELECT * FROM doc_cobro_QA WHERE id_proceso=${processId} AND id_servicio IN ( SELECT id_servicio FROM servicios WHERE id_ruta =( SELECT id_ruta FROM rutas WHERE encargado ='${route}' AND IFNULL(id_tipo_documento,1)= ${documentType} AND id_sucursal =(SELECT id_sucursal FROM sucursal WHERE nombre ='${branchName}')) )`;
-    } else {
-      query = `SELECT * FROM doc_cobro WHERE id_proceso=${processId} AND id_servicio IN ( SELECT id_servicio FROM servicios WHERE id_ruta =( SELECT id_ruta FROM rutas WHERE encargado ='${route}' AND IFNULL(id_tipo_documento,1)= ${documentType} AND id_sucursal =(SELECT id_sucursal FROM sucursal WHERE nombre ='${branchName}')) )`;
+    const query = `SELECT * FROM doc_cobro WHERE id_proceso=${processId} AND id_servicio IN ( SELECT id_servicio FROM servicios WHERE id_ruta =( SELECT id_ruta FROM rutas WHERE encargado ='${route}' AND IFNULL(id_tipo_documento,1)= ${documentType} AND id_sucursal =(SELECT id_sucursal FROM sucursal WHERE nombre ='${branchName}')) )`;
+    const result = await this.sqlService.query(query);
+    Logger.log(result);
+    if (!result || Object.keys(result).length === 0) {
+      throw new HttpException(
+        `No record found for Procces id: ${processId}`,
+        HttpStatus.NOT_FOUND,
+      );
     }
-    return await this.sqlService.query(query);
+    return result;
   }
 }

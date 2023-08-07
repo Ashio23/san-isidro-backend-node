@@ -16,14 +16,12 @@ export class FindPaymentDocumentUseCase {
     route: string,
     documentType: number,
     branchName: string,
-    environment: string,
   ): Promise<unknown> {
     return await this.paymentDocumentPort.getDocuments(
       processId,
       route,
       documentType,
       branchName,
-      environment,
     );
   }
 }

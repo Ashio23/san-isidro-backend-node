@@ -17,13 +17,17 @@ export class ProcessStatusService implements IProcessStatusPort {
     routeName: string,
     documentStatus: number,
   ): Promise<boolean> {
-    let response = false;
     const result = await this.sqlService.query(
-      `SELECT COUNT(*) FROM process_status WHERE process_id = ${processId} AND route_id = (SELECT id FROM routes WHERE name = ${routeName}) AND status IN (0, 1, 2) AND document_status = ${documentStatus}`,
+      `SELECT
+        COUNT(*)
+      FROM
+        estado_proceso_dte
+      WHERE
+        id_proceso = ${processId} AND
+        id_ruta = (SELECT id_ruta FROM rutas WHERE encargado = '${routeName}') AND
+        estado_proceso IN (0, 1, 2) AND
+        id_estado_proceso_dte = ${documentStatus}`,
     );
-    if (result) {
-      response = true;
-    }
-    return response;
+    return !result || Object.keys(result).length === 0 ? false : true;
   }
 }

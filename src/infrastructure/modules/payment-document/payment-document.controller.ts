@@ -18,14 +18,12 @@ export class PaymentDocumentController {
     @Query('route') route: string,
     @Query('documentType') documentType: number,
     @Query('branchName') branchName: string,
-    @Query('environment') environment: string,
   ) {
     return await this.findPaymentDocumentUseCase.getDocuments(
       processId,
       route,
       documentType,
       branchName,
-      environment,
     );
   }
 }
