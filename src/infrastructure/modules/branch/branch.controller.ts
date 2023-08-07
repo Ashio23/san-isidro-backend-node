@@ -1,4 +1,4 @@
-import { BranchesUseCase } from '@domain/branch/branch.use-case';
+import { BranchesUseCase } from '@domain/branch';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('branches')

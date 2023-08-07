@@ -1,4 +1,4 @@
-import { ProcessUseCase } from '@domain/process/process.use-case';
+import { ProcessUseCase } from '@domain/process';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('processes')

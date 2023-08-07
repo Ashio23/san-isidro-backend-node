@@ -1,5 +1,4 @@
-import { GetCommuneUseCase } from '@domain/commune/get-commune.use-case';
-import { GET_COMMUNE_ADAPTER } from '@domain/commune/port/get-commune.port';
+import { GET_COMMUNE_ADAPTER, GetCommuneUseCase } from '@domain/commune';
 import { Module } from '@nestjs/common';
 import { CommuneController } from './commune.controller';
 import { CommuneService } from './commune.service';

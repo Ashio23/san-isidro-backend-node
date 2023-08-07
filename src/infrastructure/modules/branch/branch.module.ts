@@ -1,5 +1,4 @@
-import { BranchesUseCase } from '@domain/branch/branch.use-case';
-import { BRANCH_ADAPTER } from '@domain/branch/port';
+import { BRANCH_ADAPTER, BranchesUseCase } from '@domain/branch';
 import { Module } from '@nestjs/common';
 import { BranchController } from './branch.controller';
 import { BranchService } from './branch.service';

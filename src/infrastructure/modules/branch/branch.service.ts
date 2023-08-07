@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SqlService } from '@infrastructure/application/adapters/database/sql.service';
+import {
+  SQL_ADAPTER,
+  SqlService,
+} from '@infrastructure/application/adapters/database';
 import { BranchResponseDto } from './entity/branch.entity';
-import { IBranchPort } from '@domain/branch/port';
-import { SQL_ADAPTER } from '@infrastructure/application/adapters/database';
+import { IBranchPort } from '@domain/branch';
 
 @Injectable()
 export class BranchService implements IBranchPort {

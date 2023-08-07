@@ -1,4 +1,4 @@
-import { SaveInvoiceUseCase } from '@domain/invoice/set-invoice.use-case';
+import { SaveInvoiceUseCase } from '@domain/invoice';
 import { Controller, Post, Body } from '@nestjs/common';
 import { InvoiceResponseDto } from './dto/invoice.dto';
 

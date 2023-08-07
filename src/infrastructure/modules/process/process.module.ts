@@ -1,5 +1,4 @@
-import { PROCESS_ADAPTER } from '@domain/process/port';
-import { ProcessUseCase } from '@domain/process/process.use-case';
+import { PROCESS_ADAPTER, ProcessUseCase } from '@domain/process';
 import { Module } from '@nestjs/common';
 import { ProcessController } from './process.controller';
 import { ProcessService } from './process.service';

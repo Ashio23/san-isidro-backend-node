@@ -1,6 +1,8 @@
-import { IInvoicePort } from '@domain/invoice/port/set-invoice.port';
-import { SQL_ADAPTER } from '@infrastructure/application/adapters/database';
-import { SqlService } from '@infrastructure/application/adapters/database/sql.service';
+import { IInvoicePort } from '@domain/invoice';
+import {
+  SQL_ADAPTER,
+  SqlService,
+} from '@infrastructure/application/adapters/database';
 import { Inject, Injectable } from '@nestjs/common';
 import { InvoiceResponseDto } from './dto/invoice.dto';
 
