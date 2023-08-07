@@ -1,20 +1,19 @@
 import { Module } from '@nestjs/common';
 import { HealthModule } from './health';
-import { PostExampleModule } from './example';
-import { PaymentMethodsModule } from './payment-method/payment-method.module';
-import { DocumentModule } from './document/document.module';
-import { CommuneModule } from './commune/commune.module';
-import { ClientModule } from './client/client.module';
-import { InvoiceModule } from './invoice/invoice.module';
-import { PaymentDocumentModule } from './payment-document/payment-document.module';
-import { GroupModule } from './group/group.module';
-import { BranchModule } from './branch/branch.module';
-import { ProcessModule } from './process/process.module';
+import { PaymentMethodsModule } from './payment-method';
+import { DocumentModule } from './document';
+import { CommuneModule } from './commune';
+import { ClientModule } from './client';
+import { InvoiceModule } from './invoice';
+import { PaymentDocumentModule } from './payment-document';
+import { GroupModule } from './group';
+import { BranchModule } from './branch';
+import { ProcessModule } from './process';
+import { ProcessStatusModule } from './process-status';
 
 @Module({
   imports: [
     HealthModule,
-    PostExampleModule,
     PaymentMethodsModule,
     DocumentModule,
     CommuneModule,
@@ -24,6 +23,7 @@ import { ProcessModule } from './process/process.module';
     GroupModule,
     BranchModule,
     ProcessModule,
+    ProcessStatusModule,
   ],
 })
 export class ModulesModule {}
