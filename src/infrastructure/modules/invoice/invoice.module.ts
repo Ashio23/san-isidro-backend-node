@@ -1,7 +1,6 @@
-import { SaveInvoiceUseCase } from '@domain/invoice/set-invoice.use-case';
+import { SAVE_INVOICE_ADAPTER, SaveInvoiceUseCase } from '@domain/invoice';
 import { Module } from '@nestjs/common';
 import { InvoiceController } from './invoice.controller';
-import { SAVE_INVOICE_ADAPTER } from '@domain/invoice/port/set-invoice.port';
 import { InvoiceService } from './invoice.service';
 
 @Module({

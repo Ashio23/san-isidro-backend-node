@@ -1,4 +1,4 @@
-import { GetDocumentsUseCase } from '@domain/Document/get-document.use-case';
+import { GetDocumentsUseCase } from '@domain/Document';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('documents')

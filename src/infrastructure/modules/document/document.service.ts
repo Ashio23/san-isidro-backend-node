@@ -1,4 +1,4 @@
-import { IDocumentPort } from '@domain/Document/port/get-document.port';
+import { IDocumentPort } from '@domain/Document';
 import { Injectable } from '@nestjs/common';
 import { DocumentResponseDto } from './entity';
 

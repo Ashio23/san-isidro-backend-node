@@ -1,4 +1,4 @@
-import { GetCommuneUseCase } from '@domain/commune/get-commune.use-case';
+import { GetCommuneUseCase } from '@domain/commune';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('commune')

@@ -1,7 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SqlService } from '@infrastructure/application/adapters/database/sql.service';
+import {
+  SQL_ADAPTER,
+  SqlService,
+} from '@infrastructure/application/adapters/database';
 import { IGroupPort } from '@domain/group';
-import { SQL_ADAPTER } from '@infrastructure/application/adapters/database';
 
 @Injectable()
 export class GroupService implements IGroupPort {

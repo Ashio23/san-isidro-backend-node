@@ -1,5 +1,4 @@
-import { GetDocumentsUseCase } from '@domain/Document/get-document.use-case';
-import { GET_DOCUMENT_ADAPTER } from '@domain/Document/port/get-document.port';
+import { GET_DOCUMENT_ADAPTER, GetDocumentsUseCase } from '@domain/Document';
 import { Module } from '@nestjs/common';
 import { DocumentsController } from './document.controller';
 import { DocumentService } from './document.service';
