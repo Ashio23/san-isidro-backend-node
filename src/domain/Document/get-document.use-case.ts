@@ -11,4 +11,19 @@ export class GetDocumentsUseCase {
   execute() {
     return this.documentPort.getDocuments();
   }
+  callDteMysqlUseCase(
+    access: number,
+    processId: string,
+    routeId: string,
+    documentType: string,
+    branch: string,
+  ) {
+    return this.documentPort.callDteMySql(
+      access,
+      processId,
+      routeId,
+      documentType,
+      branch,
+    );
+  }
 }
