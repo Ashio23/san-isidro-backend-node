@@ -1,4 +1,4 @@
-import { ProcessDto } from '@domain/process/dto';
+import { ProcessDto } from '@domain/process';
 
 export class ProcessResponseDto implements ProcessDto {
   id: string;

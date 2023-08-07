@@ -10,6 +10,7 @@ import { GroupModule } from './group';
 import { BranchModule } from './branch';
 import { ProcessModule } from './process';
 import { ProcessStatusModule } from './process-status';
+import { ScheduleSendProcessModule } from './schedule-send-process';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ProcessStatusModule } from './process-status';
     BranchModule,
     ProcessModule,
     ProcessStatusModule,
+    ScheduleSendProcessModule,
   ],
 })
 export class ModulesModule {}
