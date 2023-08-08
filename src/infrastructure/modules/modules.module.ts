@@ -11,6 +11,7 @@ import { BranchModule } from './branch';
 import { ProcessModule } from './process';
 import { ProcessStatusModule } from './process-status';
 import { ScheduleSendProcessModule } from './schedule-send-process';
+import { RouteModule } from './route';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ScheduleSendProcessModule } from './schedule-send-process';
     ProcessModule,
     ProcessStatusModule,
     ScheduleSendProcessModule,
+    RouteModule,
   ],
 })
 export class ModulesModule {}
