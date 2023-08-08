@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SQL_ADAPTER, SqlService } from '@application/adapters/database'; // Asegúrate de importar correctamente SqlService
+import { SQL_ADAPTER, SqlService } from '@application/adapters/database';
 import { IRouteDto, IRoutePort } from '@domain/route';
 
 @Injectable()

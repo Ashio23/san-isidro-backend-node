@@ -12,6 +12,7 @@ import { ProcessModule } from './process';
 import { ProcessStatusModule } from './process-status';
 import { ScheduleSendProcessModule } from './schedule-send-process';
 import { RouteModule } from './route';
+import { FolioModule } from './folio';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { RouteModule } from './route';
     ProcessStatusModule,
     ScheduleSendProcessModule,
     RouteModule,
+    FolioModule,
   ],
 })
 export class ModulesModule {}
