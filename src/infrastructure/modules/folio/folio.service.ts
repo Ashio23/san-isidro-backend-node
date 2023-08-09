@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { SQL_ADAPTER, SqlService } from '@application/adapters/database';
 import { IFolioPort } from '@domain/folio';
+import { FolioDto } from './dto';
 @Injectable()
 export class FolioService implements IFolioPort {
   constructor(
@@ -21,7 +22,17 @@ export class FolioService implements IFolioPort {
     if (!result || Object.keys(result).length === 0) {
       throw new Error('No folios found');
     }
-
     return result;
+  }
+  async updateFolio(body: FolioDto): Promise<void> {
+    if (body.eventType !== 'endEdit') {
+      return;
+    }
+    const query = `
+      Update Folios_DTE
+      set num_folio_autorizado = ${body.folio.folio_final}
+      where id_folio = ${body.folio.idfolio} and num_folio_autorizado < ${body.folio.folio_final}
+    `;
+    await this.sqlService.query(query);
   }
 }
