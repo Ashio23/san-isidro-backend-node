@@ -12,6 +12,8 @@ import { ProcessModule } from './process';
 import { ProcessStatusModule } from './process-status';
 import { ScheduleSendProcessModule } from './schedule-send-process';
 import { SoapModule } from './soap/soap.module';
+import { RouteModule } from './route';
+import { FolioModule } from './folio';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { SoapModule } from './soap/soap.module';
     ProcessStatusModule,
     ScheduleSendProcessModule,
     SoapModule,
+    RouteModule,
+    FolioModule,
   ],
 })
 export class ModulesModule {}
