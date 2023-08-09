@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { FOLIO_PORT, IFolioPort } from './port';
+import { IFolioDto } from './dto';
 
 @Injectable()
 export class FolioUseCase {
@@ -9,5 +10,8 @@ export class FolioUseCase {
   ) {}
   async findFoliosUseCase() {
     return await this.folioPort.findFolios();
+  }
+  async updateFoliosUseCase(body: IFolioDto) {
+    return await this.folioPort.updateFolio(body);
   }
 }
