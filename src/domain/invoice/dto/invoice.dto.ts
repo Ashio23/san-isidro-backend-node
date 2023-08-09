@@ -1,21 +1,21 @@
-export class InvoiceDto {
-  id: number;
-  rut: string;
+export interface IInvoiceDto {
+  issue_date: string;
+  rut: number;
+  verification_digit: string;
   name: string;
-  amount: number;
-  date: Date;
-
-  constructor(
-    id: number,
-    rut: string,
-    name: string,
-    amount: number,
-    date: Date,
-  ) {
-    this.id = id;
-    this.rut = rut;
-    this.name = name;
-    this.amount = amount;
-    this.date = date;
-  }
+  address: string;
+  commune: string;
+  business_line: string;
+  referenced_document: number;
+  num_doc_reference: number;
+  guide_number: number;
+  net_amount: number;
+  iva: number;
+  total: number;
+  due_date: string;
+  payment_method: string;
+  observation: string;
+}
+export interface IInvoiceResponse {
+  id_invoice: number;
 }

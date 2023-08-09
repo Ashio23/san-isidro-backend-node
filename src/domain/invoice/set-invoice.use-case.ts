@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IInvoicePort, SAVE_INVOICE_ADAPTER } from './port/set-invoice.port';
-import { InvoiceDto } from './dto/invoice.dto';
+import { IInvoiceDto, IInvoiceResponse } from './dto';
 
 @Injectable()
 export class SaveInvoiceUseCase {
@@ -9,7 +9,7 @@ export class SaveInvoiceUseCase {
     private readonly invoicePort: IInvoicePort,
   ) {}
 
-  async execute(invoice: InvoiceDto): Promise<unknown> {
-    return this.invoicePort.saveInvoice(invoice);
+  async execute(invoice: IInvoiceDto): Promise<IInvoiceResponse> {
+    return this.invoicePort.saveInvoiceFg(invoice);
   }
 }
