@@ -11,4 +11,8 @@ export const environmentSchema = Joi.object<Environment, true>({
   DB_PASSWORD: Joi.string().required(),
   DB_PORT: Joi.number().required(),
   DB_USERNAME: Joi.string().required(),
+  SOAP_URL: Joi.string().uri().required(),
+  SOAP_API_KEY: Joi.string().required(),
+  SII_RESOLUTION: Joi.number().required(),
+  COMPANY_ID: Joi.number().required(),
 });
