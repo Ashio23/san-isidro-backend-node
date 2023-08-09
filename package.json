@@ -24,7 +24,6 @@
     "up-sl-off": "cp deployment/serverless.dev.yml serverless.yml && npx serverless offline"
   },
   "dependencies": {
-    "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.4.2",
     "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.4.2",
