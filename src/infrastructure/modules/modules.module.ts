@@ -11,6 +11,7 @@ import { BranchModule } from './branch';
 import { ProcessModule } from './process';
 import { ProcessStatusModule } from './process-status';
 import { ScheduleSendProcessModule } from './schedule-send-process';
+import { SoapModule } from './soap/soap.module';
 import { RouteModule } from './route';
 import { FolioModule } from './folio';
 
@@ -28,6 +29,7 @@ import { FolioModule } from './folio';
     ProcessModule,
     ProcessStatusModule,
     ScheduleSendProcessModule,
+    SoapModule,
     RouteModule,
     FolioModule,
   ],

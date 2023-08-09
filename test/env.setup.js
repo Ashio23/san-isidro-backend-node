@@ -3,3 +3,7 @@ process.env.DB_NAME = 'DB_NAME';
 process.env.DB_PASSWORD = 'DB_PASSWORD';
 process.env.DB_PORT = 3306;
 process.env.DB_USERNAME = 'DB_USERNAME';
+process.env.SOAP_URL = 'localhost';
+process.env.API_KEY = 'API_KEY';
+process.env.SII_RESOLUTION = 80;
+process.env.COMPANY_ID = 96889730;

@@ -6,4 +6,8 @@ export class Environment {
   DB_PASSWORD: string;
   DB_PORT: number;
   DB_USERNAME: string;
+  SOAP_URL: string;
+  SOAP_API_KEY: string;
+  SII_RESOLUTION: number;
+  COMPANY_ID: number;
 }
